@@ -1,6 +1,12 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
+export const SafeArea = styled.SafeAreaView`
+  flex: 1;
+`;
+
+export const Container = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false,
+})`
   flex: 1;
 `;
 
@@ -33,27 +39,31 @@ export const Banner = styled.Image`
   width: 100%;
 `;
 
-export const NovasLojas = styled.View`
-  padding: 10px;
-`;
+export const NovasLojasContainer = styled.View``;
 
 export const Title = styled.Text`
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 15px;
+  margin-left: 10px;
 `;
 
-export const ContainerScroll = styled.View`
+export const ContainerScroll = styled.ScrollView.attrs({
+  horizontal: true,
+  showsHorizontalScrollIndicator: false,
+})`
   flex-direction: row;
+  padding-left: 10px;
 `;
 
 export const ContainerItem = styled.View`
   align-items: center;
+  padding-right: 6px;
 `;
 
 export const Avatar = styled.Image`
-  height: 120px;
-  width: 120px;
-  border-radius: 60px;
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
   background-color: gray;
 `;
 
@@ -68,5 +78,61 @@ export const TempoLoja = styled.Text`
 
 export const Status = styled.Text`
   font-size: 13px;
-  color: #cce6ff;
+  color: #99ccff;
+`;
+
+export const NovidadesContainer = styled.View`
+  margin-top: 20px;
+  margin-bottom: 25px;
+`;
+
+export const ContainerScrollNovidades = styled.View`
+  flex-direction: row;
+`;
+
+export const ContainerCardItem = styled.View`
+  align-items: center;
+  flex: 1;
+`;
+
+export const ImgNovidades = styled.View`
+  height: 280px;
+  width: 98%;
+  background-color: #ddd;
+  border-radius: 12px;
+`;
+
+export const TituloProduto = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+export const InfoNovidades = styled.View`
+  align-items: center;
+`;
+
+export const AreaPreco = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const AreaPrecoCheio = styled.View`
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 5px;
+`;
+
+export const PrecoCheio = styled.Text`
+  font-size: 11px;
+`;
+
+export const ValorKbs = styled.Text`
+  font-size: 10px;
+  color: #99ccff;
+`;
+
+export const PrecoNovidade = styled.Text`
+  font-size: 26px;
+  font-weight: bold;
 `;
