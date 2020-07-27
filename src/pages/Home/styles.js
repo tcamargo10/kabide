@@ -24,6 +24,14 @@ export const Header = styled.View`
   elevation: 3;
 `;
 
+export const BoxImgBanner = styled.View``;
+
+export const ImageBanner = styled.Image`
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+`;
+
 export const ActionButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
@@ -34,8 +42,10 @@ export const Logo = styled.Image`
   width: 100px;
 `;
 
-export const Banner = styled.Image`
-  height: 300px;
+export const ContainerBanner = styled.View`
+  margin-top: 7px;
+  margin-bottom: 20px;
+  height: 250px;
   width: 100%;
 `;
 

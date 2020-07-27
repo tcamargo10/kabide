@@ -1,13 +1,19 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Carousel from 'react-native-banner-carousel';
+import banner1 from '../../assets/images/banner1.jpg';
+import banner2 from '../../assets/images/banner2.jpg';
+import banner3 from '../../assets/images/banner3.jpeg';
 
 import {
   SafeArea,
   Container,
   Header,
   Logo,
+  BoxImgBanner,
+  ImageBanner,
   ActionButton,
-  Banner,
+  ContainerBanner,
   NovasLojasContainer,
   Title,
   ContainerScroll,
@@ -95,6 +101,8 @@ const lojasdestaque = [
   },
 ];
 
+const images = [banner1, banner2, banner3];
+
 const novidades = [
   {
     avatar: '/img/asdasd.png',
@@ -130,11 +138,20 @@ const Home = () => {
         </ActionButton>
       </Header>
       <Container>
-        <Banner
-          source={require('../../assets/images/homem.jpeg')}
-          resizeMode="contain"
-        />
-
+        <ContainerBanner>
+          <Carousel
+            autoplay
+            autoplayTimeout={5000}
+            loop
+            index={0}
+            activePageIndicatorStyle={{backgroundColor: '#99CCFF'}}>
+            {images.map((image, index) => (
+              <BoxImgBanner key={index}>
+                <ImageBanner source={image} />
+              </BoxImgBanner>
+            ))}
+          </Carousel>
+        </ContainerBanner>
         <NovasLojasContainer>
           <Title>Novas lojas</Title>
 
