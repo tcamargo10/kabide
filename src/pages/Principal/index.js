@@ -1,13 +1,14 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import {
   Container,
   Header,
-  Icon,
   Logo,
   Contain,
   Card,
   Img,
+  ActionButton,
   ButtonContainer,
   Button,
 } from './styles';
@@ -16,11 +17,18 @@ const Principal = () => {
   return (
     <Container>
       <Header>
-        <Icon />
-        <Logo
-          source={require('../../assets/images/logo.png')}
-          resizeMode="contain"
-        />
+        <ActionButton>
+          <Icon name="map-marker-alt" size={25} />
+        </ActionButton>
+        <ActionButton>
+          <Logo
+            source={require('../../assets/images/logo.png')}
+            resizeMode="contain"
+          />
+        </ActionButton>
+        <ActionButton>
+          <Icon name="asd" size={25} color="white" />
+        </ActionButton>
       </Header>
       <Contain>
         <Card>

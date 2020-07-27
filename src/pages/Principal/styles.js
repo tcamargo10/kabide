@@ -5,22 +5,27 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  flex-direction: row;
   height: 60px;
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: white;
-  justify-content: center;
-  align-items: center;
   border: 1px solid #ddd;
   elevation: 3;
 `;
 
-export const Icon = styled.Image``;
+export const ActionButton = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+`;
 
 export const Logo = styled.Image`
-  height: 40px;
+  height: 60px;
+  width: 100px;
 `;
 
 export const Contain = styled.View`
@@ -48,17 +53,17 @@ export const Img = styled.Image`
 `;
 
 export const ButtonContainer = styled.TouchableOpacity`
-  height: 50px;
+  height: 55px;
   width: 250px;
   border: 1px solid #ddd;
   border-radius: 28px;
   background-color: white;
   justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 export const Button = styled.Text`
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 `;
