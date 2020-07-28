@@ -70,11 +70,18 @@ export const ContainerItem = styled.View`
   padding-right: 6px;
 `;
 
+export const BoxAvatar = styled.View`
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
+  background-color: #e9e9e9;
+  border: 1px solid #ddd;
+`;
+
 export const Avatar = styled.Image`
   height: 110px;
   width: 110px;
   border-radius: 55px;
-  background-color: gray;
 `;
 
 export const NomeLoja = styled.Text`

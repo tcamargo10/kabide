@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Carousel from 'react-native-banner-carousel';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
+import {Dimensions} from 'react-native';
 import banner1 from '../../assets/images/banner1.jpg';
 import banner2 from '../../assets/images/banner2.jpg';
 import banner3 from '../../assets/images/banner3.jpeg';
+
+console.disableYellowBox = true; /*Oculta Warnings*/
 
 import {
   SafeArea,
@@ -18,6 +21,7 @@ import {
   Title,
   ContainerScroll,
   ContainerItem,
+  BoxAvatar,
   Avatar,
   NomeLoja,
   TempoLoja,
@@ -37,7 +41,8 @@ import {
 
 const novaslojas = [
   {
-    avatar: '/img/asdasd.png',
+    avatar:
+      'https://d26lpennugtm8s.cloudfront.net/stores/001/030/979/themes/common/logo-1460658344-1584120755-ff6826f1c132fc93c088492e72cb978f1584120755.png?0',
     titulo: 'Art Vitrini',
     tempo: '25-35',
     comentario: 'novo',
@@ -120,7 +125,19 @@ const novidades = [
   },
 ];
 
+const renderbanner = ({item, index}) => {
+  return (
+    <BoxImgBanner key={index}>
+      <ImageBanner source={item} />
+    </BoxImgBanner>
+  );
+};
+
 const Home = () => {
+  const [activeslide, SetActiveSlide] = useState('');
+
+  const windowWidth = Dimensions.get('window').width;
+
   return (
     <SafeArea>
       <Header>
@@ -140,25 +157,49 @@ const Home = () => {
       <Container>
         <ContainerBanner>
           <Carousel
-            autoplay
-            autoplayTimeout={5000}
-            loop
-            index={0}
-            activePageIndicatorStyle={{backgroundColor: '#99CCFF'}}>
-            {images.map((image, index) => (
-              <BoxImgBanner key={index}>
-                <ImageBanner source={image} />
-              </BoxImgBanner>
-            ))}
-          </Carousel>
+            data={images}
+            autoplay={true}
+            autoplayInterval={3000}
+            onSnapToItem={(index) => SetActiveSlide(index)}
+            sliderWidth={windowWidth}
+            itemWidth={windowWidth}
+            renderItem={renderbanner}
+          />
+          <Pagination
+            dotsLength={images.length}
+            activeDotIndex={activeslide}
+            containerStyle={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              left: 0,
+            }}
+            dotStyle={{
+              width: 10,
+              height: 10,
+              borderRadius: 5,
+              marginHorizontal: 1,
+              backgroundColor: 'rgba(255, 255, 255, 0.92)',
+            }}
+            inactiveDotStyle={
+              {
+                // Define styles for inactive dots here
+              }
+            }
+            inactiveDotOpacity={0.4}
+            inactiveDotScale={0.6}
+          />
         </ContainerBanner>
+
         <NovasLojasContainer>
           <Title>Novas lojas</Title>
 
           <ContainerScroll>
             {novaslojas.map((data, index) => (
               <ContainerItem key={index}>
-                <Avatar />
+                <BoxAvatar>
+                  <Avatar source={{uri: data.avatar}} resizeMode="contain" />
+                </BoxAvatar>
                 <NomeLoja>{data.titulo}</NomeLoja>
                 <TempoLoja>{data.tempo}</TempoLoja>
                 <Status>{data.comentario}</Status>
