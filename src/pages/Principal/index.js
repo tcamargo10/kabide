@@ -13,7 +13,7 @@ import {
   Button,
 } from './styles';
 
-const Principal = () => {
+const Principal = ({navigation}) => {
   return (
     <Container>
       <Header>
@@ -36,7 +36,10 @@ const Principal = () => {
             source={require('../../assets/images/homem.jpeg')}
             resizeMode="stretch"
           />
-          <ButtonContainer onPress={() => {}}>
+          <ButtonContainer
+            onPress={() => {
+              navigation.navigate('Home', 'F');
+            }}>
             <Button>FEMININO</Button>
           </ButtonContainer>
         </Card>
@@ -45,7 +48,10 @@ const Principal = () => {
             source={require('../../assets/images/homem.jpeg')}
             resizeMode="stretch"
           />
-          <ButtonContainer onPress={() => {}}>
+          <ButtonContainer
+            onPress={() => {
+              navigation.navigate('Home', 'M');
+            }}>
             <Button>MASCULINO</Button>
           </ButtonContainer>
         </Card>
