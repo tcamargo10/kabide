@@ -38,7 +38,7 @@ const Principal = ({navigation}) => {
           />
           <ButtonContainer
             onPress={() => {
-              navigation.navigate('Home', 'F');
+              navigation.navigate('Tabs', 'F');
             }}>
             <Button>FEMININO</Button>
           </ButtonContainer>
@@ -50,7 +50,7 @@ const Principal = ({navigation}) => {
           />
           <ButtonContainer
             onPress={() => {
-              navigation.navigate('Home', 'M');
+              navigation.navigate('Tabs', 'M');
             }}>
             <Button>MASCULINO</Button>
           </ButtonContainer>
