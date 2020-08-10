@@ -235,7 +235,9 @@ const Home = () => {
           <ContainerScroll>
             {lojasdestaque.map((data, index) => (
               <ContainerItem key={index}>
-                <Avatar />
+                <BoxAvatar>
+                  <Avatar source={{uri: data.avatar}} resizeMode="contain" />
+                </BoxAvatar>
                 <NomeLoja>{data.titulo}</NomeLoja>
                 <TempoLoja>{data.tempo}</TempoLoja>
                 <Status>{data.comentario}</Status>
